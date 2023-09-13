@@ -1,5 +1,4 @@
 package com.newpr.newpr.controllers;
-
 import com.newpr.newpr.dao.UsuarioDao;
 import com.newpr.newpr.models.Usuario;
 import com.newpr.newpr.utils.JWTUtil;

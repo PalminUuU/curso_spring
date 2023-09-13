@@ -1,5 +1,10 @@
 $(document).ready(function() {
-    cargar_usuarios()
+    const credenciales =localStorage.getItem("token")
+    if (credenciales == null){
+        window.location.href ='login.html';
+    }else{
+        cargar_usuarios()
+    }
 });
 
 async function cargar_usuarios(){
