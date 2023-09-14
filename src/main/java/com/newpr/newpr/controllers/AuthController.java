@@ -20,7 +20,6 @@ public class AuthController {
     @RequestMapping(value = "api/login", method = RequestMethod.POST)
     public String login(@RequestBody Usuario usuario){
         Usuario user = usuarioDao.obeterUser(usuario);
-
         if (user != null){
         String token = jwtUtil.create(String.valueOf(user.getId()),user.getEmail() );
             return token;

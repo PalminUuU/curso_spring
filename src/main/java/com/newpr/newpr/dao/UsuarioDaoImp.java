@@ -41,7 +41,6 @@ public class UsuarioDaoImp implements UsuarioDao {
        List<Usuario> lista = entityManager.createQuery(query)
         .setParameter("email", usuario.getEmail())
         .getResultList();
-
        if (lista.isEmpty()){
            return null;
        }

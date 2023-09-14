@@ -11,7 +11,6 @@ $("#iniciar_sesion").click(function () {
 })
 
 async function iniciarSesion(){
-
     let datos = {};
     datos.email = $("#txt_email").val();
     datos.password = $("#txt_password").val();

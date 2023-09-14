@@ -1,19 +1,16 @@
 $(document).ready(function() {
-    const credenciales =localStorage.getItem("token")
-    if (credenciales == null){
-        window.location.href ='login.html';
-    }else{
-        cargar_usuarios()
-    }
+cargar_usuarios()
 });
 
 async function cargar_usuarios(){
-        const request = await fetch('api/usuarios', {
-            method: 'GET',
-            headers: getHeader()
-        });
-        const content = await request.json();
-
+    const request = await fetch('api/usuarios', {
+        method: 'GET',
+        headers: getHeader()
+    });
+    const content = await request.json();
+    if (content.status == 500){
+        window.location.href ='login.html';
+    }else {
     $("#dataTable").DataTable({
         data: content,
         scrollX: false,
@@ -38,6 +35,7 @@ async function cargar_usuarios(){
         dom: "Bfrtip",
         buttons: ["csvHtml5"],
     });
+    }
 
 }
 
@@ -54,7 +52,7 @@ async function eliminar_usuario (id){
         method: 'DELETE',
         headers: getHeader()
     });
-   location.reload()
+    location.reload()
 }
 
 function getHeader (){
